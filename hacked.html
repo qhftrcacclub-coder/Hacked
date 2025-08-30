@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Code Safety Awareness</title>
   <style>
-    /* ... (your CSS remains unchanged) ... */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -23,6 +23,8 @@
       flex-direction: column;
       padding: 20px;
     }
+
+    /* HACKED SCREEN */
     #hackScreen {
       background: black;
       color: red;
@@ -33,18 +35,14 @@
       from { opacity: 1; }
       to { opacity: 0.2; }
     }
+
+    /* SAFE / PRANK SCREEN */
     #prankScreen {
       background: #222;
       color: #fff;
       font-size: 5vw;
-      animation: fadeIn 1s ease forwards; /* keyframes added below */
+      animation: fadeIn 1s ease forwards;
     }
-    /* MISSING KEYFRAMES FIX: Add fadeIn animation used by #prankScreen */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .safe-message {
       color: limegreen;
       font-weight: bold;
@@ -56,6 +54,8 @@
       from { text-shadow: 0 0 10px limegreen; }
       to { text-shadow: 0 0 25px limegreen, 0 0 40px lime; }
     }
+
+    /* AWARENESS PAGE */
     #awarenessScreen {
       height: 100vh;
       overflow-y: auto;
@@ -63,6 +63,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
+
       background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
@@ -72,6 +73,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     .container {
       max-width: 700px;
       margin: 30px auto;
@@ -81,6 +83,7 @@
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
       opacity: 0;
       transform: translateY(100px);
       transition: opacity 1s ease, transform 1s ease;
@@ -89,6 +92,7 @@
       opacity: 1;
       transform: translateY(0);
     }
+
     h1 {
       color: #d32f2f;
       text-align: center;
@@ -113,6 +117,8 @@
       color: #444;
       font-size: 4.5vw;
     }
+
+    /* Download Button */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -136,9 +142,13 @@
       height: 28px;
       border-radius: 6px;
     }
+
+    /* HIDE/SHOW */
     .hidden {
       display: none;
     }
+
+    /* RESPONSIVE */
     @media (min-width: 768px) {
       h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
@@ -151,65 +161,75 @@
   </style>
 </head>
 <body>
-  <main>
-    <!-- Fake hack screen -->
-    <section id="hackScreen" class="screen" aria-live="assertive" role="alert">
-      <span role="img" aria-label="Warning">⚠️</span> YOU HAVE BEEN HACKED! <span role="img" aria-label="Warning">⚠️</span>
-    </section>
 
-    <!-- Safe prank screen -->
-    <section id="prankScreen" class="screen hidden" aria-live="polite">
-      <span class="safe-message" role="status">🎉 Relax! You're Safe 🎉</span>
-      <p>This was just a prank by the developers.</p>
-    </section>
+  <!-- Fake hack screen -->
+  <div id="hackScreen" class="screen">
+    ⚠️ YOU HAVE BEEN HACKED! ⚠️
+  </div>
 
-    <!-- Awareness screen -->
-    <section id="awarenessScreen" class="hidden" aria-labelledby="awarenessTitle">
-      <div class="container" id="awarenessBox">
-        <h1 id="awarenessTitle">Don’t Worry — This Was Just a Demo!</h1>
-        <p>
-          In real life, scanning unknown QR codes can be dangerous.
-        </p>
-        <h2>⚠️ Risks of Unknown QR Codes</h2>
-        <ul>
-          <li>May lead you to phishing websites.</li>
-          <li>Could trigger malware downloads.</li>
-          <li>Might steal personal or banking data.</li>
-          <li>Can track your location or device info.</li>
-        </ul>
-        <h2>🔐 Cybersecurity Tips</h2>
-        <ul>
-          <li>Always verify the source of a QR code.</li>
-          <li>Use a QR scanner that previews links before opening.</li>
-          <li>Avoid scanning random codes in public places.</li>
-          <li>Keep your phone’s OS and antivirus updated.</li>
-          <li>Never enter sensitive info unless you trust the website fully.</li>
-        </ul>
-        <div class="footer">
-          🚫 Think Before You Scan — Stay Cyber Safe! 🔒
-        </div>
-        <div style="text-align:center;">
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.quickheal.antifraud&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Download Quick Heal Anti-Fraud AI from Google Play Store">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Google Play Store Logo">
-            Download Quick Heal Anti-Fraud AI
-          </a>
-        </div>
+  <!-- Safe prank screen -->
+  <div id="prankScreen" class="screen hidden">
+    <span class="safe-message">🎉 Relax! You're Safe 🎉</span>
+    <p>This was just a prank by the developers.</p>
+  </div>
+
+  <!-- Awareness screen -->
+  <div id="awarenessScreen" class="hidden">
+    <div class="container" id="awarenessBox">
+      <h1>Don’t Worry — This Was Just a Demo!</h1>
+      <p>
+        In real life, scanning unknown QR codes can be dangerous.
+      </p>
+
+      <h2>⚠️ Risks of Unknown QR Codes</h2>
+      <ul>
+        <li>May lead you to phishing websites.</li>
+        <li>Could trigger malware downloads.</li>
+        <li>Might steal personal or banking data.</li>
+        <li>Can track your location or device info.</li>
+      </ul>
+
+      <h2>🔐 Cybersecurity Tips</h2>
+      <ul>
+        <li>Always verify the source of a QR code.</li>
+        <li>Use a QR scanner that previews links before opening.</li>
+        <li>Avoid scanning random codes in public places.</li>
+        <li>Keep your phone’s OS and antivirus updated.</li>
+        <li>Never enter sensitive info unless you trust the website fully.</li>
+      </ul>
+
+      <div class="footer">
+        🚫 Think Before You Scan — Stay Cyber Safe! 🔒
       </div>
-    </section>
-  </main>
+
+      <!-- Button link with small Play Store icon -->
+      <div style="text-align:center;">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.quickheal.antifraud&pcampaignid=web_share" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Play Store Logo">
+          Download Quick Heal Anti-Fraud AI
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Step 1: show "Hacked" screen
     setTimeout(function() {
       document.getElementById("hackScreen").classList.add("hidden");
       document.getElementById("prankScreen").classList.remove("hidden");
-    }, 2000);
+    }, 1000);
 
+    // Step 2: after prank, show awareness
     setTimeout(function() {
       document.getElementById("prankScreen").classList.add("hidden");
       document.getElementById("awarenessScreen").classList.remove("hidden");
+
+      // Trigger slide-up animation
       setTimeout(() => {
         document.getElementById("awarenessBox").classList.add("visible");
       }, 100);
-    }, 4000);
+    }, 4000); // 1s hack + 3s prank
   </script>
+
 </body>
 </html>
